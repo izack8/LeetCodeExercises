@@ -15,15 +15,27 @@ class Solution {
         
         return merged.toString();
     }
-    // python code
-    // merged=[]
-    // for i in range(max(len(word1),len(word2))):
-    //     if i < len(word1):
-    //         merged.append(word1[i])
-    //     if i < len(word2):
-    //         merged.append(word2[i])
-    // concatenated = "".join(merged)
-    // return concatenated
+
+    public int goodNodes(TreeNode root) {
+        return dfs(root, Integer.MIN_VALUE);
+    }
+    
+    private int dfs(TreeNode node, int maxVal) {
+        if (node == null) {
+            return 0;
+        }
+        
+        int goodCount = 0;
+        if (node.val >= maxVal) {
+            goodCount++;
+        }
+        
+        maxVal = Math.max(maxVal, node.val);
+        goodCount += dfs(node.left, maxVal);
+        goodCount += dfs(node.right, maxVal);
+        
+        return goodCount;
+    }
 
 
 }
