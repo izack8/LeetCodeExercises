@@ -37,6 +37,12 @@ class Solution {
         return goodCount;
     }
 
+    // 24 Aug 2023
+    public String gcdOfStrings(String str1, String str2) {
+        if (str1 + str2 != str2 + str1):
+            return ""
+    }
+
 
 }
 
